@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Resume Screener</title>
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #f4f7f6; color: #333; margin: 0; padding: 0; display: flex; justify-content: center; align-items: center; height: 100vh; }
+        .container { background-color: #fff; padding: 40px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); width: 100%; max-width: 500px; text-align: center; }
+        h1 { color: #2c3e50; margin-bottom: 20px; }
+        .upload-area { border: 2px dashed #3498db; padding: 40px; border-radius: 8px; background-color: #fbfbfc; cursor: pointer; margin-bottom: 20px; transition: 0.3s; }
+        .upload-area:hover { background-color: #f1f8ff; }
+        input[type="file"] { display: none; }
+        .btn { background-color: #3498db; color: #fff; padding: 12px 24px; border: none; border-radius: 5px; font-size: 16px; cursor: pointer; transition: 0.3s; }
+        .btn:hover { background-color: #2980b9; }
+        .error { color: #e74c3c; margin-bottom: 15px; font-weight: bold; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>AI Resume Screener</h1>
+    <p>Upload a candidate's resume (PDF/DOCX) to predict their suitability for the role.</p>
+    
+    {% if error %}
+    <div class="error">{{ error }}</div>
+    {% endif %}
+
+    <form action="/" method="POST" enctype="multipart/form-data">
+        <label class="upload-area" for="resume">
+            <h3>Drag & Drop or Click to Upload</h3>
+            <p>Supported formats: .pdf, .docx</p>
+        </label>
+        <input type="file" name="resume" id="resume" accept=".pdf,.docx" required onchange="document.getElementById('filename').innerText = this.files[0].name;">
+        <p id="filename" style="color: #7f8c8d; font-style: italic;"></p>
+        
+        <button type="submit" class="btn">Analyze Resume</button>
+    </form>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Screening Result</title>
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #f4f7f6; color: #333; margin: 0; padding: 20px; display: flex; justify-content: center; align-items: center; min-height: 100vh; }
+        .container { background-color: #fff; padding: 40px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); width: 100%; max-width: 600px; }
+        h1 { color: #2c3e50; border-bottom: 2px solid #ecf0f1; padding-bottom: 10px; }
+        .result-box { margin: 20px 0; padding: 20px; border-radius: 8px; text-align: center; }
+        .suitable { background-color: #d4edda; color: #155724; border: 1px solid #c3e6cb; }
+        .rejected { background-color: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; }
+        .score { font-size: 24px; font-weight: bold; margin-top: 10px; }
+        .features { background-color: #f9f9f9; padding: 15px; border-radius: 5px; margin-top: 20px; }
+        .features h3 { margin-top: 0; }
+        .features ul { list-style-type: none; padding: 0; }
+        .features li { padding: 5px 0; border-bottom: 1px solid #eee; display: flex; justify-content: space-between; }
+        .btn { display: inline-block; background-color: #3498db; color: #fff; padding: 10px 20px; text-decoration: none; border-radius: 5px; margin-top: 20px; }
+        .btn:hover { background-color: #2980b9; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Screening Results</h1>
+    
+    <div class="result-box {% if 'Suitable' in result %}suitable{% else %}rejected{% endif %}">
+        <h2>{{ result }}</h2>
+        <div class="score">Confidence Score: {{ confidence }}%</div>
+    </div>
+
+    <div class="features">
+        <h3>Extracted Key Features</h3>
+        <ul>
+            <li><span>Education Level:</span> <strong>{{ features.education_level }}</strong></li>
+            <li><span>University Tier:</span> <strong>{{ features.university_tier }}</strong></li>
+            <li><span>Programming Languages:</span> <strong>{{ features.programming_languages }}</strong></li>
+            <li><span>Experience Years:</span> <strong>{{ features.experience_years }}</strong></li>
+            <li><span>Skills Score:</span> <strong>{{ features.skills_score }}</strong></li>
+            <li><span>Soft Skills Score:</span> <strong>{{ features.soft_skills_score }}</strong></li>
+            <li><span>Projects:</span> <strong>{{ features.projects }}</strong></li>
+        </ul>
+    </div>
+    
+    <div class="features">
+        <h3>Resume Summary Preview</h3>
+        <p style="font-size: 14px; color: #555; font-style: italic;">"{{ summary }}"</p>
+    </div>
+
+    <div style="text-align: center;">
+        <a href="/" class="btn">Screen Another Resume</a>
+    </div>
+</div>
+
+</body>
+</html>
