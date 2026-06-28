@@ -46,8 +46,10 @@ This project is an AI-powered Resume Screening System designed to automatically 
 3. Upload a Resume in `.pdf` or `.docx` format.
 4. The system will automatically parse the resume, extract relevant features, pass them to the trained Random Forest model, and display a "Highly Suitable" or "Not Suitable" result along with a confidence score.
 
-## 📸 Screenshots
-*(Add screenshots of your web app running, the upload page, and the prediction result page here)*
+## 📸 Project Showcase
+- **Day 2 (EDA)**: Visualizations (available in `docs/eda_visualizations/`) show how factors like Education, Experience, and Skills impact hiring outcomes.
+- **Day 3 (ML Evaluation)**: Performance comparisons between 4 models are available in `docs/model_visualizations/`.
+- **Day 4 (Web Interface)**: Modern, responsive glassmorphism UI for instant resume screening.
 
 ## 🔮 Future Improvements
 - Implement advanced NLP (like SpaCy or HuggingFace Transformers) to better extract structured data from raw resume text rather than using heuristics.
